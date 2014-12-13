@@ -57,9 +57,11 @@ public void example() {
     MenuInflater inflater = getMenuInflater();
     inflater.inflate(R.menu.main_activity_actions, menu);
     
-    // Other
-    R.string; // strings for translation
-    R.style;
+    // R.string (translation)
+    String hello = getResources().getString(R.string.hello_world)
+    textView.setText(R.string.hello_world);
+    
+    // R.style;
 }
 ```
 
