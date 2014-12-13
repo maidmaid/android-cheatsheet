@@ -88,3 +88,24 @@ Theme
     </style>
 </resources>
 ```
+
+Translation
+-----------
+
+Default traduction:
+```
+<!-- res/values/styles.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Application</string>
+</resources>
+```
+
+FR traduction:
+```
+<!-- res/values-fr/styles.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mon application/string>
+</resources>
+```
