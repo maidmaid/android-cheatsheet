@@ -62,3 +62,27 @@ public void example() {
     R.style;
 }
 ```
+
+Theme
+-----
+
+### Generic theme
+
+```xml
+<!-- AndroidManifest.xml -->
+<application android:theme="@android:style/Theme.Holo" ... />
+```
+
+### Custom theme:
+```xml
+<!-- AndroidManifest.xml -->
+<application android:theme="@style/AppTheme" ... />
+```
+```xml
+<!-- res/values/styles.xml -->
+<resources>
+    <style name="AppTheme" parent="@android:style/Theme.Holo">
+        <item name="android:windowActionBarOverlay">true</item>
+    </style>
+</resources>
+```
