@@ -46,6 +46,9 @@ Class ``R``
 
 ```java
 R.id;
+EditText edit = (EditText) findViewById(R.id.editText);
+```
+```java
 R.layout;
 R.menu;
 R.string; // strings for translation
