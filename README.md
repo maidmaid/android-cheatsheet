@@ -113,3 +113,91 @@ FR traduction:
     <string name="app_name">Mon application/string>
 </resources>
 ```
+
+Database
+--------
+
+### Contract
+
+´´´java
+public class DbContract {
+    public static final int DATABASE_VERSION = 1;
+    public static final String DATABASE_NAME = "database.sqlite";
+    private static final String TEXT_TYPE = " TEXT";
+    private static final String COMMA_SEP = ",";
+    
+    public DbContract() {
+
+    }
+    
+    public static abstract class Person implements BaseColumns {
+        public static final String TABLE_NAME = "person";
+        public static final String COLUMN_NAME_FIRSTNAME = "firstname";
+        public static final String SQL_CREATE_TABLE =
+            "CREATE TABLE " + TABLE_NAME + " (" +
+                _ID + " INTEGER PRIMARY KEY, " +
+                    COLUMN_NAME_FIRSTNAME + TEXT_TYPE +
+            ")";
+        public static final String SQL_DELETE_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
+    }
+}
+```
+
+### Helper
+
+```java
+public class DbHelper extends SQLiteOpenHelper {
+    public DbHelper(Context context) {
+        super(context, DbContract.DATABASE_NAME, null, DbContract.DATABASE_VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL(DbContract.Person.SQL_CREATE_TABLE);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL(DbContract.Person.SQL_DELETE_TABLE);
+        onCreate(db);
+    }
+}
+```
+
+### Util Db class
+
+```java
+public class Db {
+    public static SQLiteDatabase db;
+
+    static void initialize(Context context) {
+        DbHelper dbHelper = new DbHelper(context);
+        db = dbHelper.getWritableDatabase();
+    }
+
+    static long insertPerson(String firstname) {
+        ContentValues values = new ContentValues();
+        values.put(DbContract.Person.COLUMN_NAME_FIRSTNAME, firstname);
+
+        long id = db.insert(DbContract.Person.TABLE_NAME, null, values);
+        return id;
+    }
+}
+```
+
+### Use in Activity !
+
+```java
+public class MainActivity extends Activity {
+    //...
+    protected void onCreate(Bundle savedInstanceState) {
+        //...
+        Db.initialize(getApplicationContext());
+    }
+    //...
+    public void saveTheWorld(View view) {
+        Db.insertPerson("Dany");
+        Db.insertPerson("Licya");
+    }
+}
+```
