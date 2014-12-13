@@ -126,10 +126,6 @@ public class DbContract {
     private static final String TEXT_TYPE = " TEXT";
     private static final String COMMA_SEP = ",";
     
-    public DbContract() {
-
-    }
-    
     public static abstract class Person implements BaseColumns {
         public static final String TABLE_NAME = "person";
         public static final String COLUMN_NAME_FIRSTNAME = "firstname";
