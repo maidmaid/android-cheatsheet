@@ -41,6 +41,10 @@ public class MyActivity2 extends Activity {
 }
 ```
 
+### Activity lifecycle
+
+![activity lifecycle](https://developer.android.com/images/training/basics/basic-lifecycle-create.png)
+
 Class ``R``
 -----------
 
