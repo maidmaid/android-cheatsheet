@@ -1,4 +1,4 @@
-android-cheatsheet
+Android Cheatsheet
 ==================
 
 Add action to Button
