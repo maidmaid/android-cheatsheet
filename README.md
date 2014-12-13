@@ -45,12 +45,20 @@ Class ``R``
 -----------
 
 ```java
-R.id;
-EditText edit = (EditText) findViewById(R.id.editText);
-```
-```java
-R.layout;
-R.menu;
-R.string; // strings for translation
-R.style;
+public void example() {
+    
+    // R.id;
+    EditText edit = (EditText) findViewById(R.id.editText);
+    
+    // R.layout;
+    setContentView(R.layout.activity_displaymessage);
+    
+    // R.menu;
+    MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.main_activity_actions, menu);
+    
+    // Other
+    R.string; // strings for translation
+    R.style;
+}
 ```
