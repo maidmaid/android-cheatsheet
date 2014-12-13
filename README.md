@@ -1,7 +1,7 @@
 Android Cheatsheet
 ==================
 
-Add action to Button
+Add action to ``Button``
 ---------------------------
 
 ```xml
@@ -13,7 +13,7 @@ public void sendMessage(View view) {
 }
 ```
 
-Start an Activity
+Start an ``Activity``
 -----------------
 
 ```java
@@ -39,4 +39,15 @@ public class MyActivity2 extends Activity {
     }
     //...
 }
+```
+
+Class ``R``
+-----------
+
+```java
+R.id;
+R.layout;
+R.menu;
+R.string; // strings for translation
+R.style;
 ```
